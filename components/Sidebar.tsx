@@ -15,7 +15,7 @@ const Sidebar = () => {
         {
             label:'Projects',
             icon:'$',
-            linkto: '#'
+            linkto: '#projects'
         },
         {
             label:'Skills',
