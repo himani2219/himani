@@ -20,7 +20,7 @@ const Sidebar = () => {
         {
             label:'Skills',
             icon:'$',
-            linkto: '#'
+            linkto: '#skills'
         }
     ]
     const socials = [

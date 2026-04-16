@@ -1,6 +1,7 @@
 import Experience from './Experience'
 import Profile from './Profile'
 import Projects from './Projects'
+import Skills from './Skills'
 
 const MainPage = () => {
   return (
@@ -8,6 +9,7 @@ const MainPage = () => {
         <Profile/>
         <Experience/>
         <Projects/>
+        <Skills/>
     </div>
   )
 }
