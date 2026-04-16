@@ -19,7 +19,7 @@ const Projects = () => {
         'JWT',
       ],
       gitLink: 'Jul 2025 - Present',
-      image: '/dummy.jpeg',
+      image: '/medical.jpeg',
       highlights: [
         'Developed a full-stack platform for booking and managing doctor appointments with real-time availability updates',
         'Implemented role-based authentication system supporting patients, doctors, and administrators',
@@ -40,7 +40,7 @@ const Projects = () => {
         'OpenWeather API',
       ],
       gitLink: 'Jan 2025 -Jul 2025',
-      image: '/dummy.jpeg',
+      image: '/sunset.jpeg',
       highlights: [
         'Built voice-enabled weather application improving accessibility for visually impaired users',
         'Integrated Web Speech API for natural language voice command processing',

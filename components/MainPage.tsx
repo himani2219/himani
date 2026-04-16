@@ -6,12 +6,15 @@ import Skills from './Skills'
 
 const MainPage = () => {
   return (
-    <div className='w-5/6 h-screen overflow-y-scroll [scrollbar-width:none]'>
-        <Profile/>
-        <Experience/>
-        <Education/>
-        <ProjectsWithModal/>
-        <Skills/>
+    <div
+      id="main-content"
+      className="min-h-0 min-w-0 flex-1 overflow-y-scroll scroll-smooth [scrollbar-width:none] motion-reduce:scroll-auto md:h-screen"
+    >
+      <Profile />
+      <Experience />
+      <Education />
+      <ProjectsWithModal />
+      <Skills />
     </div>
   )
 }

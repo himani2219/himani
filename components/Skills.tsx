@@ -21,22 +21,22 @@ const Skills = () => {
   ]
 
   return (
-    <div id="skills" className="px-10 pb-10">
-      <h3 className="text-[30px] text-white font-bold">Skills</h3>
-      <div className="flex overflow-x-scroll [scrollbar-width:none] gap-4 py-5">
+    <div id="skills" className="w-full px-4 pb-10 sm:px-6 md:px-10">
+      <h3 className="text-2xl font-bold text-white sm:text-[30px]">Skills</h3>
+      <div className="flex gap-4 overflow-x-auto py-5 [scrollbar-width:none] sm:gap-5">
         {categories.map((category) => (
           <div
             key={category.title}
-            className="border border-zinc-800 opacity-90 bg-zinc-900 backdrop-blur-sm p-4 rounded-md min-w-[220px] max-w-[280px] shrink-0 hover:bg-zinc-800/90 transition-colors duration-200"
+            className="min-w-[220px] max-w-[280px] shrink-0 rounded-md border border-zinc-800 bg-zinc-900/90 p-4 opacity-90 backdrop-blur-sm transition-colors duration-200 hover:bg-zinc-800/90"
           >
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-[#1DB954] mb-3">
+            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#1DB954]">
               {category.title}
             </h4>
             <ul className="flex flex-wrap gap-2">
               {category.items.map((item) => (
                 <li
                   key={item}
-                  className="text-xs text-zinc-300 border border-zinc-700 rounded-full px-2.5 py-1 hover:border-[#1DB954]/60 hover:text-white transition-colors"
+                  className="rounded-full border border-zinc-700 px-2.5 py-1 text-xs text-zinc-300 transition-colors hover:border-[#1DB954]/60 hover:text-white"
                 >
                   {item}
                 </li>
