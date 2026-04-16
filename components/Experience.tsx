@@ -33,22 +33,22 @@ const Experience = () => {
 
     const ExperienceCard = ({experience}: {experience: Experience})=>{
         return (
-            <div className="border border-zinc-800 opacity-90 bg-zinc-900 backdrop-blur-sm p-3 rounded-md w-200 min-w-50 hover:bg-zinc-800 transition-colors duration-200  ">
+            <div className="min-w-full shrink-0 snap-center border border-zinc-800 opacity-90 bg-zinc-900 backdrop-blur-sm p-4 rounded-md transition-colors duration-200 hover:bg-zinc-800 md:min-w-0 md:w-full md:snap-none md:shrink">
                 <h4 className='text-[20px] font-semibold mb-2 text-white'>{experience.role}</h4>
                 <p className='text-sm tracking-tight text-zinc-400'>{experience.company}</p>
                 <p className='text-sm tracking-tight text-zinc-400'>{experience.duration}</p>
                 <ul className='list-disc list-inside text-[12px] text-zinc-400 mt-2'>
                     {experience.description.slice(0,2).map((desc, index) => (
-                        <li key={index} className="truncate">{desc}</li>
+                        <li key={index} className="text-pretty">{desc}</li>
                     ))}
                 </ul>
             </div>
         )
     }
   return (
-    <div className='px-10'>
-        <h3 className='text-[30px] text-white font-bold'>Experience</h3>
-        <div className="flex overflow-x-scroll [scrollbar-width:none] gap-4 py-5">
+    <div id="experience" className='w-full px-4 pb-10 sm:px-6 md:px-10'>
+        <h3 className='text-2xl font-bold text-white sm:text-[30px]'>Experience</h3>
+        <div className="flex w-full flex-row gap-4 overflow-x-auto scroll-smooth py-5 [scrollbar-width:none] snap-x snap-mandatory md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:snap-none">
         {experiences.map((experience, index)=>(
             <ExperienceCard key={index} experience={experience}/>
         ))}

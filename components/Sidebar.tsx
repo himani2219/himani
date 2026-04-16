@@ -10,7 +10,12 @@ const Sidebar = () => {
         {
             label:'Experience',
             icon:'$',
-            linkto: '#'
+            linkto: '#experience'
+        },
+        {
+            label:'Education',
+            icon:'$',
+            linkto: '#education'
         },
         {
             label:'Projects',
