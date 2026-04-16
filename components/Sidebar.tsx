@@ -1,74 +1,87 @@
-import React from 'react'
+import type { IconType } from 'react-icons'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import {
+  HiAcademicCap,
+  HiBriefcase,
+  HiEnvelope,
+  HiFolderOpen,
+  HiHome,
+  HiSparkles,
+} from 'react-icons/hi2'
+
+type NavLink = {
+  label: string
+  linkto: string
+  Icon: IconType
+}
 
 const Sidebar = () => {
-    const links = [
-        {
-            label:'Home',
-            icon:'$',
-            linkto: '#'
-        },
-        {
-            label:'Experience',
-            icon:'$',
-            linkto: '#experience'
-        },
-        {
-            label:'Education',
-            icon:'$',
-            linkto: '#education'
-        },
-        {
-            label:'Projects',
-            icon:'$',
-            linkto: '#projects'
-        },
-        {
-            label:'Skills',
-            icon:'$',
-            linkto: '#skills'
-        }
-    ]
-    const socials = [
-        {
-            label:'Email',
-            icon:'$',
-            linkto: '#'
-        },
-        {
-            label:'Github',
-            icon:'$',
-            linkto: '#'
-        },
-        {
-            label:'LinkedIn',
-            icon:'$',
-            linkto: '#'
-        },
-    ]
+  const links: NavLink[] = [
+    { label: 'Home', linkto: '#', Icon: HiHome },
+    { label: 'Experience', linkto: '#experience', Icon: HiBriefcase },
+    { label: 'Education', linkto: '#education', Icon: HiAcademicCap },
+    { label: 'Projects', linkto: '#projects', Icon: HiFolderOpen },
+    { label: 'Skills', linkto: '#skills', Icon: HiSparkles },
+  ]
+
+  const socials = [
+    {
+      label: 'Email',
+      linkto: '#',
+      Icon: HiEnvelope,
+    },
+    {
+      label: 'Github',
+      linkto: '#',
+      Icon: FaGithub,
+    },
+    {
+      label: 'LinkedIn',
+      linkto: '#',
+      Icon: FaLinkedin,
+    },
+  ]
+
   return (
-    <aside className='w-1/6 bg-black h-screen'>
-        <div className="flex flex-col justify-between h-full px-5 py-8">
-            <div className="flex flex-col gap-2">
-                <h2 className='text-2xl tracking-wide font-extrabold text-white'>Himani Panchal</h2>
-                <p className='text-zinc-500 text-sm'>Software Development Engineer</p>
-                <div className="flex flex-col w-full gap-1 mt-5">
-                    {links.map((link, i)=>(
-                        <a key={i} href={link.linkto} className='flex gap-2 p-2 active:bg-zinc-700 rounded-sm hover:ml-2 transition-all duration-200'>
-                            <span>{link.icon}</span>
-                            <span>{link.label}</span>
-                        </a>
-                    ))}
-                </div>
-            </div>
-            <div className="flex flex-col gap-2 text-zinc-500 text-sm">
-                {socials.map((link, i)=>(
-                        <a key={i} href={link.linkto} className='flex gap-2'>
-                            <span>{link.icon}</span>
-                            <span>{link.label}</span>
-                        </a>
-                    ))}
-            </div>
+    <aside className="h-screen w-1/6 bg-black">
+      <div className="flex h-full flex-col justify-between px-5 py-8">
+        <div className="flex flex-col gap-2">
+          <h2 className="text-2xl font-extrabold tracking-wide text-white">
+            Himani Panchal
+          </h2>
+          <p className="text-sm text-zinc-500">Software Development Engineer</p>
+          <nav className="mt-5 flex w-full flex-col gap-1" aria-label="Primary">
+            {links.map(({ label, linkto, Icon }) => (
+              <a
+                key={label}
+                href={linkto}
+                className="group flex items-center gap-3 rounded-sm p-2 transition-all duration-200 hover:ml-2 hover:bg-zinc-800 active:bg-zinc-700"
+              >
+                <Icon
+                  className="h-5 w-5 shrink-0 text-zinc-400 transition-colors group-hover:text-[#1DB954]"
+                  aria-hidden
+                />
+                <span className="text-zinc-200">{label}</span>
+              </a>
+            ))}
+          </nav>
         </div>
+        <div className="flex flex-col gap-2 text-sm text-zinc-500">
+          {socials.map(({ label, linkto, Icon }) => (
+            <a
+              key={label}
+              href={linkto}
+              className="group flex items-center gap-3 transition-colors hover:text-zinc-300"
+            >
+              <Icon
+                className="h-5 w-5 shrink-0 text-zinc-500 transition-colors group-hover:text-[#1DB954]"
+                aria-hidden
+              />
+              <span>{label}</span>
+            </a>
+          ))}
+        </div>
+      </div>
     </aside>
   )
 }
