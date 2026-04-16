@@ -20,7 +20,7 @@ const Profile = () => {
                 </div>
             </div>
         </div>
-        <div className=" absolute description w-3/4 bottom-20">
+        <div className="text-zinc-300 absolute description w-3/4 bottom-20">
             Software Development Engineer with experience building scalable, SEO-optimized web applications using React.js and Next.js. Strong in performance optimization, complex UI systems, and delivering production-ready features with measurable impact.
         </div>
 

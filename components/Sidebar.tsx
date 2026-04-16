@@ -44,7 +44,7 @@ const Sidebar = () => {
     <aside className='w-1/6 bg-black h-screen'>
         <div className="flex flex-col justify-between h-full px-5 py-8">
             <div className="flex flex-col gap-2">
-                <h2 className='text-2xl tracking-wide font-extrabold'>Himani Panchal</h2>
+                <h2 className='text-2xl tracking-wide font-extrabold text-white'>Himani Panchal</h2>
                 <p className='text-zinc-500 text-sm'>Software Development Engineer</p>
                 <div className="flex flex-col w-full gap-1 mt-5">
                     {links.map((link, i)=>(

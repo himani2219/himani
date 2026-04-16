@@ -45,7 +45,7 @@ const Projects = () => {
                 <div className="mb-2">
                     <img src={project.image} alt={project.name} className="w-full h-40 rounded-md" />
                 </div>
-                <h4 className='text-[20px] font-semibold mb-2'>{project.name}</h4>
+                <h4 className='text-[20px] font-semibold mb-2 text-white'>{project.name}</h4>
                 <p className='text-sm tracking-tight text-zinc-400'>{project.techstack.join(', ')}</p>
                 {/* <p className='text-sm tracking-tight text-zinc-400'>{project.gitLink}</p> */}
                 <ul className='list-disc list-inside text-[12px] text-zinc-400 mt-2'>
