@@ -23,11 +23,11 @@ const Education = () => {
   return (
     <div id="education" className="w-full px-4 pb-10 sm:px-6 md:px-10">
       <h3 className="text-2xl font-bold text-white sm:text-[30px]">Education</h3>
-      <div className="flex w-full flex-row gap-4 overflow-x-auto scroll-smooth py-5 [scrollbar-width:none] snap-x snap-mandatory md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:snap-none">
+      <div className="flex w-full flex-col gap-4 py-5 md:grid md:grid-cols-2 md:gap-5">
         {entries.map((entry) => (
           <article
             key={entry.degree}
-            className="min-w-full shrink-0 snap-center rounded-md border border-zinc-800 bg-zinc-900/90 p-4 opacity-90 backdrop-blur-sm transition-colors duration-200 hover:bg-zinc-800/90 md:min-w-0 md:w-full md:snap-none md:shrink"
+            className="w-full shrink-0 rounded-md border border-zinc-800 bg-zinc-900/90 p-4 opacity-90 backdrop-blur-sm transition-colors duration-200 hover:bg-zinc-800/90"
           >
             <p className="text-xs font-semibold uppercase tracking-wider text-[#1DB954]">
               {entry.period}

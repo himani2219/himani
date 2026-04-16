@@ -33,7 +33,7 @@ const Experience = () => {
 
     const ExperienceCard = ({experience}: {experience: Experience})=>{
         return (
-            <div className="min-w-full shrink-0 snap-center border border-zinc-800 opacity-90 bg-zinc-900 backdrop-blur-sm p-4 rounded-md transition-colors duration-200 hover:bg-zinc-800 md:min-w-0 md:w-full md:snap-none md:shrink">
+            <div className="w-full shrink-0 rounded-md border border-zinc-800 bg-zinc-900/90 p-4 opacity-90 backdrop-blur-sm transition-colors duration-200 hover:bg-zinc-800">
                 <h4 className='text-[20px] font-semibold mb-2 text-white'>{experience.role}</h4>
                 <p className='text-sm tracking-tight text-zinc-400'>{experience.company}</p>
                 <p className='text-sm tracking-tight text-zinc-400'>{experience.duration}</p>
@@ -48,7 +48,7 @@ const Experience = () => {
   return (
     <div id="experience" className='w-full px-4 pb-10 sm:px-6 md:px-10'>
         <h3 className='text-2xl font-bold text-white sm:text-[30px]'>Experience</h3>
-        <div className="flex w-full flex-row gap-4 overflow-x-auto scroll-smooth py-5 [scrollbar-width:none] snap-x snap-mandatory md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:snap-none">
+        <div className="flex w-full flex-col gap-4 py-5 md:grid md:grid-cols-2 md:gap-5">
         {experiences.map((experience, index)=>(
             <ExperienceCard key={index} experience={experience}/>
         ))}

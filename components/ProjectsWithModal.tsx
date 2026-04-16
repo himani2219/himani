@@ -70,7 +70,7 @@ const ProjectsWithModal = () => {
     <button
       type="button"
       onClick={() => setOpenProject(project)}
-      className="min-w-full shrink-0 snap-center cursor-pointer rounded-md border border-zinc-800 bg-zinc-900/80 p-4 text-left opacity-90 backdrop-blur-sm transition-colors duration-200 hover:bg-zinc-800 md:min-w-0 md:w-full md:snap-none md:shrink"
+      className="w-full cursor-pointer bg-zinc-900/80 p-4 text-left opacity-90 backdrop-blur-sm transition-colors duration-200 hover:bg-zinc-800 md:rounded-md md:border md:border-zinc-800"
     >
       <div className="relative mb-2 w-full overflow-hidden rounded-md bg-zinc-800">
         <img
@@ -95,9 +95,11 @@ const ProjectsWithModal = () => {
   )
 
   return (
-    <div id="projects" className="w-full px-4 pb-10 sm:px-6 md:px-10">
-      <h3 className="text-2xl font-bold text-white sm:text-[30px]">Projects</h3>
-      <div className="flex w-full flex-row gap-4 overflow-x-auto scroll-smooth py-5 [scrollbar-width:none] snap-x snap-mandatory md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:snap-none">
+    <div id="projects" className="w-full pb-10">
+      <h3 className="px-4 text-2xl font-bold text-white sm:px-6 sm:text-[30px] md:px-10">
+        Projects
+      </h3>
+      <div className="mt-5 flex w-full flex-col divide-y divide-zinc-800 border-y border-zinc-800 md:mt-5 md:grid md:grid-cols-2 md:gap-5 md:divide-y-0 md:border-0 md:px-10 md:py-5">
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} />
         ))}
