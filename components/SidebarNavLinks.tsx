@@ -9,7 +9,7 @@ import {
   HiHome,
   HiSparkles,
 } from 'react-icons/hi2'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 const ICONS: Record<NavSectionId, IconType> = {
   home: HiHome,
@@ -19,29 +19,61 @@ const ICONS: Record<NavSectionId, IconType> = {
   skills: HiSparkles,
 }
 
+/** Distance from top of viewport; section is "passed" when its top is at or above this line. */
+function getTriggerPx() {
+  if (typeof window === 'undefined') return 120
+  return Math.min(140, Math.max(72, window.innerHeight * 0.12))
+}
+
+function pickActiveSection(): NavSectionId {
+  const trigger = getTriggerPx()
+  let current: NavSectionId = 'home'
+  for (const { id } of NAV_SECTIONS) {
+    const el = document.getElementById(id)
+    if (!el) continue
+    const top = el.getBoundingClientRect().top
+    if (top <= trigger) {
+      current = id
+    }
+  }
+  return current
+}
+
 export default function SidebarNavLinks() {
   const [activeId, setActiveId] = useState<NavSectionId>('home')
 
-  useEffect(() => {
-    const root = document.getElementById('main-content')
-    if (!root) return
+  const updateActive = useCallback(() => {
+    setActiveId(pickActiveSection())
+  }, [])
 
-    const updateActive = () => {
-      const trigger = root.scrollTop + 120
-      let current: NavSectionId = 'home'
-      for (const { id } of NAV_SECTIONS) {
-        const el = document.getElementById(id)
-        if (el && el.offsetTop <= trigger) {
-          current = id
-        }
-      }
-      setActiveId(current)
+  useEffect(() => {
+    const raf = requestAnimationFrame(() => updateActive())
+
+    const main = document.getElementById('main-content')
+    const opts: AddEventListenerOptions = { passive: true }
+
+    window.addEventListener('scroll', updateActive, opts)
+    window.addEventListener('resize', updateActive, opts)
+    main?.addEventListener('scroll', updateActive, opts)
+
+    // Lazy-loaded sections mount later; subtree changes refresh active state
+    const mo =
+      main &&
+      new MutationObserver(() => {
+        requestAnimationFrame(updateActive)
+      })
+    if (main && mo) {
+      mo.observe(main, { childList: true, subtree: true })
     }
 
-    updateActive()
-    root.addEventListener('scroll', updateActive, { passive: true })
-    return () => root.removeEventListener('scroll', updateActive)
-  }, [])
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener('scroll', updateActive)
+      window.removeEventListener('resize', updateActive)
+      main?.removeEventListener('scroll', updateActive)
+      mo?.disconnect()
+    }
+  }, [updateActive])
 
   return (
     <>
