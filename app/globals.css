@@ -31,9 +31,44 @@ body {
   color: var(--foreground);
 }
 
+/* Sections: fade + slide when ViewportGate opens after ~20vh is visible */
+@keyframes reveal-section {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes reveal-section-fade-only {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.reveal-section {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  animation: reveal-section 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  /* Helps Safari / mobile GPUs commit opacity + transform */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .reveal-section {
+    transform: none;
+    animation: reveal-section-fade-only 0.45s ease-out forwards;
   }
 }
 

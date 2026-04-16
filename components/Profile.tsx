@@ -5,7 +5,7 @@ const Profile = () => {
       className="relative min-h-[80vh] px-4 py-12 sm:px-6 md:px-10"
       style={{
         background:
-          'linear-gradient(180deg, #1DB954 0%, #27272a 70%, #18181b 100%)',
+          'linear-gradient(180deg, #1DB954 0%, #27272a 70%, #121212 100%)',
       }}
     >
       <div className="flex flex-col gap-6 md:flex-row md:items-center md:gap-8">
