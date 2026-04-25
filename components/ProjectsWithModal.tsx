@@ -31,7 +31,7 @@ const ProjectsWithModal = () => {
         'i18n',
       ],
       gitLink: 'World Cup bracket prediction platform',
-      image: '/medical.jpeg',
+      image: '/worldplay.jpeg',
       highlights: [
         'Built and maintained a scalable React + TypeScript application for World Cup bracket prediction workflows, including landing pages, dashboards, and bracket creation/editing.',
         'Designed a widget-driven UI architecture, normalizing server-defined blocks (wp.landing.*, wp.dashboard.*) via strongly-typed coercion utilities for extensible rendering.',
@@ -53,7 +53,7 @@ const ProjectsWithModal = () => {
         'State Management',
       ],
       gitLink: 'Customer website and internal platform modernization',
-      image: '/sunset.jpeg',
+      image: '/bhartiaxa.jpeg',
       highlights: [
         'Revamped customer-facing website and internal platforms using React.js + Next.js, improving SEO and accessibility (Lighthouse: 75 -> 90) and overall performance.',
         'Delivered features across website, customer service, and mCustomer tracks, optimizing journeys like policy purchase, servicing, and account management.',

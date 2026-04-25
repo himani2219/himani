@@ -18,8 +18,8 @@ const Projects = () => {
         'Socket.io',
         'JWT',
       ],
-      gitLink: 'Jul 2025 - Present',
-      image: '/medical.jpeg',
+      gitLink: 'Feb 2026 - Present',
+      image: '/worldplay.jpeg',
       highlights: [
         'Developed a full-stack platform for booking and managing doctor appointments with real-time availability updates',
         'Implemented role-based authentication system supporting patients, doctors, and administrators',
