@@ -1,22 +1,41 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
+import ModalOverlay from './ModalOverlay'
 import ProjectDetailModal, { type ProjectDetail } from './ProjectDetailModal'
 
 const ProjectsWithModal = () => {
   const [openProject, setOpenProject] = useState<ProjectDetail | null>(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setOpenProject(null)
     }
+    const html = document.documentElement
+    const body = document.body
+    const main = document.getElementById('main-content')
+
+    const prevHtmlOverflow = html.style.overflow
+    const prevBodyOverflow = body.style.overflow
+    const prevMainOverflow = main?.style.overflow
+
     if (openProject) {
       document.addEventListener('keydown', onKey)
-      document.body.style.overflow = 'hidden'
+      html.style.overflow = 'hidden'
+      body.style.overflow = 'hidden'
+      if (main) main.style.overflow = 'hidden'
     }
     return () => {
       document.removeEventListener('keydown', onKey)
-      document.body.style.overflow = ''
+      html.style.overflow = prevHtmlOverflow
+      body.style.overflow = prevBodyOverflow
+      if (main) main.style.overflow = prevMainOverflow ?? ''
     }
   }, [openProject])
 
@@ -103,9 +122,18 @@ const ProjectsWithModal = () => {
         ))}
       </div>
 
-      {openProject && (
-        <ProjectDetailModal project={openProject} onClose={() => setOpenProject(null)} />
-      )}
+      {mounted &&
+        openProject &&
+        createPortal(
+          <>
+            <ModalOverlay onClose={() => setOpenProject(null)} />
+            <ProjectDetailModal
+              project={openProject}
+              onClose={() => setOpenProject(null)}
+            />
+          </>,
+          document.body
+        )}
     </div>
   )
 }

@@ -39,7 +39,7 @@ body {
   }
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: none;
   }
 }
 
@@ -50,6 +50,22 @@ body {
   to {
     opacity: 1;
   }
+}
+
+@keyframes modal-sheet-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 32px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.modal-sheet-enter {
+  animation: modal-sheet-enter 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform, opacity;
 }
 
 .reveal-section {
@@ -69,6 +85,12 @@ body {
   .reveal-section {
     transform: none;
     animation: reveal-section-fade-only 0.45s ease-out forwards;
+  }
+
+  .modal-sheet-enter {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }
 

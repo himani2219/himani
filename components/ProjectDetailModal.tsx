@@ -1,7 +1,5 @@
 'use client'
 
-import Image from 'next/image'
-
 export interface ProjectDetail {
   name: string
   techstack: string[]
@@ -21,22 +19,12 @@ type ProjectDetailModalProps = {
  */
 const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-end justify-center sm:items-center sm:p-4 md:p-6"
-      role="presentation"
-    >
-      <button
-        type="button"
-        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-        aria-label="Close project details"
-        onClick={onClose}
-      />
-
+    <div className="fixed inset-x-0 bottom-0 z-[200] flex justify-center pointer-events-none">
       <div
         role="dialog"
         aria-modal="true"
         aria-labelledby="project-detail-modal-title"
-        className="relative z-10 flex max-h-[min(92dvh,100vh)] w-full max-w-2xl flex-col overflow-hidden rounded-t-2xl border border-zinc-800 border-b-0 bg-zinc-900 shadow-xl sm:max-h-[90dvh] sm:rounded-2xl sm:border-b"
+        className="modal-sheet-enter pointer-events-auto relative bottom-0 z-10 flex h-[80vh] w-full flex-col overflow-hidden rounded-t-2xl border border-zinc-800 border-b-0 bg-zinc-900 shadow-xl md:max-w-2xl"
       >
         <div className="relative top-0 z-20 shrink-0 border-b border-zinc-800 bg-zinc-900/95 px-3 py-2 backdrop-blur-sm sm:px-6 sm:py-5">
           <div className="flex justify-center pt-1 sm:pt-0">
